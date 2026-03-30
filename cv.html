@@ -43,27 +43,52 @@
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 60px 40px;
         }
 
+        body {
+            display: grid;
+            grid-template-columns: 25% 1fr;
+            gap: 60px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 60px;
+            height: fit-content;
+        }
+
         header {
-            margin-bottom: 48px;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 32px;
+            padding-bottom: 24px;
+            margin-bottom: 24px;
         }
 
         h1 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             letter-spacing: -0.5px;
         }
 
         .subtitle {
             color: var(--text-light);
-            font-size: 18px;
+            font-size: 14px;
+        }
+
+        .sidebar section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar h2 {
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .contact {
+            font-size: 14px;
         }
 
         section {
@@ -80,6 +105,7 @@
         }
 
         .job {
+            list-style-type: none;
             margin-bottom: 24px;
         }
 
@@ -177,13 +203,43 @@
             color: var(--bg);
         }
 
+        .contact-print {
+            display: none;
+        }
+
         @media print {
             body {
                 padding: 0;
+                max-width: none;
+                display: block;
+            }
+
+            .sidebar {
+                position: static;
             }
 
             section {
                 page-break-inside: avoid;
+            }
+
+            .contact,
+            button {
+                display: none;
+            }
+
+            .contact-print {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sidebar {
+                position: static;
             }
         }
 
@@ -192,7 +248,7 @@
 
 <body>
     <button class="theme-toggle" id="theme-toggle">Toggle theme</button>
-    <main>
+    <aside class="sidebar">
         <header>
             <h1>Emilien</h1>
             <p class="subtitle">Senior Full Stack Developer</p>
@@ -201,84 +257,94 @@
         <section>
             <h2>Contact</h2>
             <p class="contact">
-                <a href="mailto:emilien@example.com">emilien@example.com</a> ·
-                <a href="#">LinkedIn</a> ·
-                <a href="#">GitHub</a>
+                <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a><br>
+                <a href="https://www.linkedin.com/in/emilien-durieu-802105133/">LinkedIn</a><br>
+                <a href="https://github.com/EmilienD">GitHub</a>
+            </p>
+            <p class="contact-print">
+                <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a><br>
+                <a
+                    href="https://www.linkedin.com/in/emilien-durieu-802105133/">www.linkedin.com/in/emilien-durieu-802105133/</a><br>
+                <a href="https://github.com/EmilienD">github.com/EmilienD</a>
             </p>
         </section>
+    </aside>
 
+    <main class="content">
         <section class="experience">
             <h2>Experience</h2>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Senior Full Stack Developer</span>
-                        <span class="job-company"> — Position Green</span>
+            <ol>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Senior Full Stack Developer</span>
+                            <span class="job-company"> — Position Green</span>
+                        </div>
+                        <span class="job-period">Aug 2025 – Present</span>
                     </div>
-                    <span class="job-period">Aug 2025 – Present</span>
-                </div>
-                <p class="job-location">Brussels, Belgium</p>
-            </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                </li>
 
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Senior Full Stack Developer</span>
-                        <span class="job-company"> — Greenomy</span>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Senior Full Stack Developer</span>
+                            <span class="job-company"> — Greenomy</span>
+                        </div>
+                        <span class="job-period">Mar 2023 – Aug 2025</span>
                     </div>
-                    <span class="job-period">Mar 2023 – Aug 2025</span>
-                </div>
-                <p class="job-location">Brussels, Belgium</p>
-            </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                </li>
 
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Full Stack Developer</span>
-                        <span class="job-company"> — Wequity</span>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — Wequity</span>
+                        </div>
+                        <span class="job-period">Feb 2022 – Mar 2023</span>
                     </div>
-                    <span class="job-period">Feb 2022 – Mar 2023</span>
-                </div>
-                <p class="job-location">Brussels, Belgium</p>
-            </div>
+                    <p class="job-location">Brussels, Belgium</p>
+                </li>
 
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">JavaScript Developer</span>
-                        <span class="job-company"> — Odoo</span>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">JavaScript Developer</span>
+                            <span class="job-company"> — Odoo</span>
+                        </div>
+                        <span class="job-period">Jul 2020 – Aug 2021</span>
                     </div>
-                    <span class="job-period">Jul 2020 – Aug 2021</span>
-                </div>
-                <p class="job-location">Belgium</p>
-            </div>
+                    <p class="job-location">Belgium</p>
+                </li>
 
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Full Stack Developer</span>
-                        <span class="job-company"> — Brickbook</span>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Full Stack Developer</span>
+                            <span class="job-company"> — Brickbook</span>
+                        </div>
+                        <span class="job-period">Aug 2019 – Jun 2020</span>
                     </div>
-                    <span class="job-period">Aug 2019 – Jun 2020</span>
-                </div>
-                <p class="job-location">Antwerp Area, Belgium</p>
-                <p class="job-description">Platform to help contracting construction companies manage subcontractor
-                    relationships.</p>
-            </div>
+                    <p class="job-location">Antwerp Area, Belgium</p>
+                    <p class="job-description">Platform to help contracting construction companies manage subcontractor
+                        relationships.</p>
+                </li>
 
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Web Developer</span>
-                        <span class="job-company"> — Qover</span>
+                <li class="job">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Web Developer</span>
+                            <span class="job-company"> — Qover</span>
+                        </div>
+                        <span class="job-period">Sep 2017 – Jul 2019</span>
                     </div>
-                    <span class="job-period">Sep 2017 – Jul 2019</span>
-                </div>
-                <p class="job-location">Brussels Area, Belgium</p>
-                <p class="job-description">Insurance-as-a-Service platform enabling businesses to integrate insurance
-                    products via open APIs.</p>
-            </div>
+                    <p class="job-location">Brussels Area, Belgium</p>
+                    <p class="job-description">Insurance-as-a-Service platform enabling businesses to integrate
+                        insurance
+                        products via open APIs.</p>
+                </li>
+            </ol>
         </section>
 
         <section>
@@ -297,11 +363,10 @@
                 <span class="skill">TypeScript</span>
                 <span class="skill">React</span>
                 <span class="skill">Node.js</span>
-                <span class="skill">Python</span>
+                <span class="skill">NestJS</span>
                 <span class="skill">PostgreSQL</span>
                 <span class="skill">GraphQL</span>
                 <span class="skill">REST APIs</span>
-                <span class="skill">AWS</span>
                 <span class="skill">Docker</span>
             </div>
         </section>
