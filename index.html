@@ -210,6 +210,16 @@
             position: relative;
         }
 
+        @keyframes vanish {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
         .copied {
             display: inline;
             position: absolute;
@@ -217,6 +227,8 @@
             border-radius: 3px;
             padding: 2px 3px;
             left: 105%;
+            opacity: 1;
+            animation: 3.1s ease-in vanish;
         }
 
         .theme-toggle {
