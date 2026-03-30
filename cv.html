@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilien - Senior Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --text: #1a1a1a;
+            --text-light: #666;
+            --accent: #2563eb;
+            --border: #e5e5e5;
+            --bg: #fff;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #f5f5f5;
+                --text-light: #a0a0a0;
+                --border: #333;
+                --bg: #111;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        header {
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .job {
+            margin-bottom: 24px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .job-company {
+            color: var(--text-light);
+        }
+        
+        .job-period {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .job-location {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        .job-description {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .education-name {
+            font-weight: 500;
+        }
+        
+        .education-period {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill {
+            background: var(--border);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .contact {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Emilien</h1>
+        <p class="subtitle">Senior Full Stack Developer</p>
+    </header>
+
+    <section>
+        <h2>Experience</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Senior Full Stack Developer</span>
+                    <span class="job-company"> — Position Green</span>
+                </div>
+                <span class="job-period">Aug 2025 – Present</span>
+            </div>
+            <p class="job-location">Brussels, Belgium</p>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Senior Full Stack Developer</span>
+                    <span class="job-company"> — Greenomy</span>
+                </div>
+                <span class="job-period">Mar 2023 – Aug 2025</span>
+            </div>
+            <p class="job-location">Brussels, Belgium</p>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Full Stack Developer</span>
+                    <span class="job-company"> — Wequity</span>
+                </div>
+                <span class="job-period">Feb 2022 – Mar 2023</span>
+            </div>
+            <p class="job-location">Brussels, Belgium</p>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">JavaScript Developer</span>
+                    <span class="job-company"> — Odoo</span>
+                </div>
+                <span class="job-period">Jul 2020 – Aug 2021</span>
+            </div>
+            <p class="job-location">Belgium</p>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Full Stack Developer</span>
+                    <span class="job-company"> — Brickbook</span>
+                </div>
+                <span class="job-period">Aug 2019 – Jun 2020</span>
+            </div>
+            <p class="job-location">Antwerp Area, Belgium</p>
+            <p class="job-description">Platform to help contracting construction companies manage subcontractor relationships.</p>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Web Developer</span>
+                    <span class="job-company"> — Qover</span>
+                </div>
+                <span class="job-period">Sep 2017 – Jul 2019</span>
+            </div>
+            <p class="job-location">Brussels Area, Belgium</p>
+            <p class="job-description">Insurance-as-a-Service platform enabling businesses to integrate insurance products via open APIs.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <span class="education-name">Institut Paul Lambin</span>
+            <span class="education-period">2014 – 2017</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill">JavaScript</span>
+            <span class="skill">TypeScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Python</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">GraphQL</span>
+            <span class="skill">REST APIs</span>
+            <span class="skill">AWS</span>
+            <span class="skill">Docker</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <p class="contact">
+            <a href="mailto:emilien@example.com">emilien@example.com</a> · 
+            <a href="#">LinkedIn</a> · 
+            <a href="#">GitHub</a>
+        </p>
+    </section>
+</body>
+</html>
