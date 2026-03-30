@@ -90,6 +90,10 @@
             margin-bottom: 24px;
         }
 
+        .no-link-contact {
+            display: inline-flex;
+        }
+
         .sidebar h2 {
             font-size: 12px;
             margin-bottom: 12px;
@@ -188,13 +192,31 @@
             font-size: 15px;
         }
 
-        .contact a {
+        .contact a,
+        .contact .no-link-contact {
+            cursor: pointer;
             color: var(--accent);
             text-decoration: none;
+            background: none;
+            border: none;
         }
 
-        .contact a:hover {
+        .contact a:hover,
+        .contact .no-link-contact:hover {
             text-decoration: underline;
+        }
+
+        .no-link-contact {
+            position: relative;
+        }
+
+        .copied {
+            display: inline;
+            position: absolute;
+            background-color: white;
+            border-radius: 3px;
+            padding: 2px 3px;
+            left: 105%;
         }
 
         .theme-toggle {
@@ -237,7 +259,7 @@
 
             .contact,
             .face-container,
-            button {
+            .theme-toggle {
                 display: none;
             }
 
@@ -291,15 +313,48 @@
             <p class="contact">
                 <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a> ·
                 <a href="https://www.linkedin.com/in/emilien-durieu-802105133/">LinkedIn</a> ·
-                <a href="https://github.com/EmilienD">GitHub</a> · <a href="tel:+32488383083">+32 488 383 083</a>
+                <a href="https://github.com/EmilienD">GitHub</a> · <button class="no-link-contact">
+                    <span style="order: 7">8</span>
+                    <span style="order: 3">2</span>
+                    <span style="order: 15">3</span>
+                    <span style="order: 4">&nbsp;</span>
+                    <span style="order: 10">8</span>
+                    <span style="order: 14">8</span>
+                    <span style="order: 5">4</span>
+                    <span style="order: 6">8</span>
+                    <span style="order: 1">+</span>
+                    <span style="order: 8">&nbsp;</span>
+                    <span style="order: 9">3</span>
+                    <span style="order: 13">0</span>
+                    <span style="order: 2">3</span>
+                    <span style="order: 11">3</span>
+                    <span style="order: 12">&nbsp;</span>
+                    </span>
+                </button>
             </p>
             <p class="contact-print">
                 <a href="mailto:contact@emilienduri.eu">contact@emilienduri.eu</a> ·
                 <a
                     href="https://www.linkedin.com/in/emilien-durieu-802105133/">www.linkedin.com/in/emilien-durieu-802105133/</a>
                 ·
-                <a href="https://github.com/EmilienD">github.com/EmilienD</a> · <a href="tel:+32488383083">+32 488 383
-                    083</a>
+                <a href="https://github.com/EmilienD">github.com/EmilienD</a> · <button class="no-link-contact">
+                    <span style="order: 7">8</span>
+                    <span style="order: 3">2</span>
+                    <span style="order: 15">3</span>
+                    <span style="order: 4">&nbsp;</span>
+                    <span style="order: 10">8</span>
+                    <span style="order: 14">8</span>
+                    <span style="order: 5">4</span>
+                    <span style="order: 6">8</span>
+                    <span style="order: 1">+</span>
+                    <span style="order: 8">&nbsp;</span>
+                    <span style="order: 9">3</span>
+                    <span style="order: 13">0</span>
+                    <span style="order: 2">3</span>
+                    <span style="order: 11">3</span>
+                    <span style="order: 12">&nbsp;</span>
+                    </span>
+                </button>
             </p>
         </section>
     </aside>
@@ -485,6 +540,28 @@
             body.classList.replace(currentTheme, themeToUse);
             localStorage.setItem('theme', themeToUse);
         });
+
+        [...document.getElementsByClassName('no-link-contact')].forEach(el => el.addEventListener('click', async () => {
+            navigator.clipboard.writeText(['+', '3', '2', '4', '8', '8', '3', '8', '3', '0', '8', '3'].join('')).then(
+                () => {
+                    const copied = document.createElement('span');
+                    copied.classList.add('copied', 'light')
+                    copied.textContent = 'Copied to clipboard';
+                    el.appendChild(copied);
+                    setTimeout(() => {
+                        el.removeChild(copied);
+                    }, 3000);
+                }
+            ).catch(() => {
+                const failedToCopy = document.createElement('span');
+                failedToCopy.classList.add('copied')
+                failedToCopy.textContent = 'Failed to copy to clipboard';
+                el.appendChild(failedToCopy);
+                setTimeout(() => {
+                    el.removeChild(failedToCopy);
+                }, 3000);
+            })
+        }))
     </script>
 </body>
 
